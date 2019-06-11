@@ -1,7 +1,7 @@
 @extends('layout/master')
 
-@section('title', 'Uhh')
+@section('title')
 
 @section('content')
-    <h1>Uhh</h1>
+    <h1>Coming soon!</h1>
 @endsection

@@ -10,13 +10,13 @@
 
     <div class="jumbotron text-center'">
         <h2>Yuuko</h2>
-        <div class="cover"></div>
+        <span>Listening to {{ count($guilds) }} guilds and counting!
     </div>
 
         <div class="container inherit light">
             <ul class="nav navbar-fixed-top nav-tabs">
                 <li class="nav-item">
-                    <a class="nav-link" href="https://www.yuuko.info">Commands</a>
+                    <a class="nav-link" href="/">Commands</a>
                 </li>
 
                 <li class="nav-item">

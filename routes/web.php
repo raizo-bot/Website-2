@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', 'MasterController@index');
+Route::get('/metrics', 'MasterController@metrics');
+Route::get('/tutorials', 'MasterController@tutorials');
