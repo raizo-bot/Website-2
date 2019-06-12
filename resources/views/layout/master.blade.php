@@ -14,12 +14,12 @@
 
     <div class="jumbotron text-center'">
         <h2>Yuuko</h2>
-        <span>Listening to {{ count($guilds) }} guilds and counting!
+        <span>Listening to <code>{{ number_format(count($guilds)) }}</code> guilds and counting!
     </div>
 
     <div id="main-nav">
         <div class="container">
-            <ul class="nav navbar-dark bg-dark">
+            <ul class="nav navbar-dark bg-dark justify-center">
                 <li class="nav-item">
                     <a class="nav-link" href="/">Commands</a>
                 </li>
@@ -47,6 +47,7 @@
         </div>
     </div>
 
+    <br>
     @yield('content')
 </body>
 
