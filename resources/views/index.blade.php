@@ -5,6 +5,7 @@
 @section('content')
 <div id="commands" class="container">
     <div class="nav justify-center" role="tablist">
+        <a class="nav-item nav-link" id="command-animal-tab" data-toggle="tab" href="#command-animal" role="tab" aria-controls="command-animal" aria-selected="false">Animal <span id="command-animal-count" class="badge badge-secondary">0</span></a>
         <a class="nav-item nav-link" id="command-audio-tab" data-toggle="tab" href="#command-audio" role="tab" aria-controls="command-audio" aria-selected="false">Audio <span id="command-audio-count" class="badge badge-secondary">0</span></a>
         <a class="nav-item nav-link active" id="command-core-tab" data-toggle="tab" href="#command-core" role="tab" aria-controls="command-home" aria-selected="true">Core <span id="command-core-count" class="badge badge-secondary">0</span></a>
         <a class="nav-item nav-link" id="command-fun-tab" data-toggle="tab" href="#command-fun" role="tab" aria-controls="command-fun" aria-selected="false">Fun <span id="command-fun-count" class="badge badge-secondary">0</span></a>
@@ -13,11 +14,53 @@
         <a class="nav-item nav-link" id="command-moderation-tab" data-toggle="tab" href="#command-moderation" role="tab" aria-controls="command-moderation" aria-selected="false">Moderation <span id="command-moderation-count" class="badge badge-secondary">0</span></a>
         <a class="nav-item nav-link" id="command-nsfw-tab" data-toggle="tab" href="#command-nsfw" role="tab" aria-controls="command-nsfw" aria-selected="false">NSFW <span id="command-nsfw-count" class="badge badge-secondary">0</span></a>
         <a class="nav-item nav-link" id="command-utility-tab" data-toggle="tab" href="#command-utility" role="tab" aria-controls="command-utility" aria-selected="false">Utility <span id="command-utility-count" class="badge badge-secondary">0</span></a>
-        <a class="nav-item nav-link" id="command-world-tab" data-toggle="tab" href="#command-world" role="tab" aria-controls="command-world" aria-selected="false">World <span id="command-world-count" class="badge badge-secondary">0</span></a>
         <a class="nav-item nav-link" id="command-settings-tab" data-toggle="tab" href="#command-settings" role="tab" aria-controls="command-settings" aria-selected="false">Settings <span id="command-settings-count" class="badge badge-secondary">0</span></a>
     </div>
 
     <div class="tab-content" id="nav-tabContent">
+
+        <div class="tab-pane fade show" id="command-animal" role="tabpanel" aria-labelledby="command-animal-tab">
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>Command</th>
+                        <th>Description</th>
+                        <th>Usage</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>cat</td>
+                        <td>Displays a random image of a cat!</td>
+                        <td>-cat</td>
+                        <td><code>-cat</code></td>
+                    </tr>
+
+                    <tr>
+                        <td>fox</td>
+                        <td>Displays a random image of a fox!</td>
+                        <td>-fox</td>
+                        <td><code>-fox</code></td>
+                    </tr>
+
+                    <tr>
+                        <td>dog</td>
+                        <td>Displays a random image of a dog!</td>
+                        <td>-dog</td>
+                        <td><code>-dog</code></td>
+                    </tr>
+
+                    <tr>
+                        <td>bird</td>
+                        <td>Displays a random image of a bird!</td>
+                        <td>-bird</td>
+                        <td><code>-bird</code></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
         <div class="tab-pane fade show" id="command-audio" role="tabpanel" aria-labelledby="command-audio-tab">
             <table class="table table-striped table-bordered">
@@ -679,11 +722,11 @@
 $(document).ready(function() {
     $('#command-core-count').html($('#command-core tbody tr').length);
     $('#command-moderation-count').html($('#command-moderation tbody tr').length);
+    $('#command-animal-count').html($('#command-animal tbody tr').length);
     $('#command-audio-count').html($('#command-audio tbody tr').length);
     $('#command-interaction-count').html($('#command-interaction tbody tr').length);
     $('#command-utility-count').html($('#command-utility tbody tr').length);
     $('#command-media-count').html($('#command-media tbody tr').length);
-    $('#command-world-count').html($('#command-world tbody tr').length);
     $('#command-fun-count').html($('#command-fun tbody tr').length);
     $('#command-nsfw-count').html($('#command-nsfw tbody tr').length);
     $('#command-settings-count').html($('#command-settings tbody tr').length);
