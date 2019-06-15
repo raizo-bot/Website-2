@@ -3,5 +3,7 @@
 @section('title', 'Yuuko -> Metrics')
 
 @section('content')
-    <h2>Soon&trade;</h2>
+    <div class="container">
+        <h1>Coming soon! :)</h1>
+    </div>
 @endsection

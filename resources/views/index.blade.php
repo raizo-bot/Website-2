@@ -285,6 +285,13 @@
                         <td>-advice</td>
                         <td><code>-advice</code></td>
                     </tr>
+
+                    <tr>
+                        <td>joke</td>
+                        <td>Returns a random crappy dad joke.</td>
+                        <td>-joke, -joke [term]</td>
+                        <td><code>-joke</code>, <code>-joke ass</code></td>
+                    </tr>
                 </tbody>
             </table>
         </div>
