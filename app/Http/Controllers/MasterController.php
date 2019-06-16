@@ -17,7 +17,10 @@ class MasterController extends Controller {
 		$guilds = Guild::all();
         $guildRegions = DB::table('Guilds')->select('guildRegion as name', DB::raw('count(guildRegion) as count'))->groupBy('guildRegion')->orderByRaw('count(guildRegion) DESC')->get()->toArray();
 
-		return view('metrics', compact('guilds', 'guildRegions'));
+        $systemMetrics = DB::connection('dbmetrics')->table("SystemMetrics")->select('*')->where('shardId', '=', '0')->limit(150)->orderBy('dateInserted', 'DESC')->get()->reverse();
+        $systemMetrics2 = DB::connection('dbmetrics')->table("SystemMetrics")->select('*')->where('shardId', '=', '1')->limit(150)->orderBy('dateInserted', 'DESC')->get()->reverse();
+
+		return view('metrics', compact('guilds', 'guildRegions', 'systemMetrics', 'systemMetrics2'));
 	}
 
 	public function tutorials() {
