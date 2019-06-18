@@ -21,10 +21,6 @@ a:visited, a:hover, a:link {
     text-align: center;
 }
 
-.nav {
-    background-color: #212529 !important;
-}
-
 .nav-item:hover {
     background-color: #3d4852;
 }
@@ -45,4 +41,12 @@ a:visited, a:hover, a:link {
 
 #commands td {
     color: #aaaaaa !important;
+}
+
+.bg-dark {
+    background-color: #212529 !important;
+}
+
+.h2-font {
+    font-size: 2rem;
 }

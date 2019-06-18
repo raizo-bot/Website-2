@@ -4,7 +4,7 @@
 
 @section('content')
 <div id="commands" class="container">
-    <div class="nav justify-center" role="tablist">
+    <div class="nav bg-dark justify-center" role="tablist">
         <a class="nav-item nav-link" id="command-animal-tab" data-toggle="tab" href="#command-animal" role="tab" aria-controls="command-animal" aria-selected="false">Animal <span id="command-animal-count" class="badge badge-secondary">0</span></a>
         <a class="nav-item nav-link" id="command-audio-tab" data-toggle="tab" href="#command-audio" role="tab" aria-controls="command-audio" aria-selected="false">Audio <span id="command-audio-count" class="badge badge-secondary">0</span></a>
         <a class="nav-item nav-link active" id="command-core-tab" data-toggle="tab" href="#command-core" role="tab" aria-controls="command-home" aria-selected="true">Core <span id="command-core-count" class="badge badge-secondary">0</span></a>

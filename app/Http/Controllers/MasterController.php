@@ -15,17 +15,38 @@ class MasterController extends Controller {
 
 	public function metrics() {
 		$guilds = Guild::all();
-        $guildRegions = DB::table('Guilds')->select('guildRegion as name', DB::raw('count(guildRegion) as count'))->groupBy('guildRegion')->orderByRaw('count(guildRegion) DESC')->get()->toArray();
+        $guildRegions = DB::table('Guilds')->select(DB::raw('guildRegion as name, count(guildRegion) as count'))->groupBy('guildRegion')->orderByRaw('count(guildRegion) DESC')->get()->toArray();
 
-        $systemMetrics = DB::connection('dbmetrics')->table("SystemMetrics")->select('*')->where('shardId', '=', '0')->limit(150)->orderBy('dateInserted', 'DESC')->get()->reverse();
-        $systemMetrics2 = DB::connection('dbmetrics')->table("SystemMetrics")->select('*')->where('shardId', '=', '1')->limit(150)->orderBy('dateInserted', 'DESC')->get()->reverse();
+        $systemMetrics = $this->getMetricsSorted("SystemMetrics");
+        $discordMetrics = $this->getMetricsSorted("DiscordMetrics");
 
-		return view('metrics', compact('guilds', 'guildRegions', 'systemMetrics', 'systemMetrics2'));
+        $commandLog = DB::connection('dbmetrics')->table("CommandsLog")->select(DB::raw('command, count(command) as count, avg(executionTime) as executionTime'))->groupBy('command')->get();
+
+		return view('metrics', compact('guilds', 'guildRegions', 'systemMetrics', 'discordMetrics', 'commandLog'));
 	}
 
 	public function tutorials() {
 		$guilds = Guild::all();
 		return view('tutorials', compact('guilds'));
 	}
+
+    private function getMetricsSorted($table) {
+        $mixedArray = DB::connection('dbmetrics')->table($table)->select('*')->limit(200)->orderBy('dateInserted', 'DESC')->get()->reverse();
+        $shard0 = Array();
+        $shard1 = Array();
+
+        foreach($mixedArray as $record) {
+            if($record->shardId == 0) {
+                array_push($shard0, $record);
+            } else {
+                array_push($shard1, $record);
+            }
+        }
+
+        $mixedArray = Array();
+        array_push($mixedArray, $shard0, $shard1);
+
+        return $mixedArray;
+    }
 
 }
