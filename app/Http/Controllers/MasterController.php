@@ -17,12 +17,13 @@ class MasterController extends Controller {
 		$guilds = Guild::all();
         $guildRegions = DB::table('Guilds')->select(DB::raw('guildRegion as name, count(guildRegion) as count'))->groupBy('guildRegion')->orderByRaw('count(guildRegion) DESC')->get()->toArray();
 
-        $systemMetrics = $this->getMetricsSorted("SystemMetrics");
-        $discordMetrics = $this->getMetricsSorted("DiscordMetrics");
+        $systemMetrics = $this->getMetricsSorted("SystemMetrics", 200);
+        $discordMetrics = $this->getMetricsSorted("DiscordMetrics", 100);
+        $eventMetrics = $this->getMetricsSorted("EventMetrics", 200);
 
         $commandLog = DB::connection('dbmetrics')->table("CommandsLog")->select(DB::raw('command, count(command) as count, avg(executionTime) as executionTime'))->groupBy('command')->get();
 
-		return view('metrics', compact('guilds', 'guildRegions', 'systemMetrics', 'discordMetrics', 'commandLog'));
+		return view('metrics', compact('guilds', 'guildRegions', 'systemMetrics', 'discordMetrics', 'commandLog', 'eventMetrics'));
 	}
 
 	public function tutorials() {
@@ -30,8 +31,8 @@ class MasterController extends Controller {
 		return view('tutorials', compact('guilds'));
 	}
 
-    private function getMetricsSorted($table) {
-        $mixedArray = DB::connection('dbmetrics')->table($table)->select('*')->limit(200)->orderBy('dateInserted', 'DESC')->get()->reverse();
+    private function getMetricsSorted($table, $limit) {
+        $mixedArray = DB::connection('dbmetrics')->table($table)->select('*')->limit($limit)->orderBy('dateInserted', 'DESC')->get()->reverse();
         $shard0 = Array();
         $shard1 = Array();
 

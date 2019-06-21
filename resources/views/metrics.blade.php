@@ -1,23 +1,32 @@
 @extends('layout/master')
 
-@section('title', 'Yuuko -> Metrics')
+@section('title', 'Yuuko > Metrics')
 
 @section('content')
     <div class="container">
         <div class="text-center bg-dark p-1"> <span class="h2-font">{{ $systemMetrics[0][0]->uptime }}ms</span></div>
-        <canvas id="GuildRegions" height="100"></canvas>
         <canvas id="MemoryUsage" height="100"></canvas>
         <canvas id="TotalCommandExecutions" height="100"></canvas>
         <canvas id="AverageExecutionTime" height="100"></canvas>
-        <canvas id="TotalUsers" height="100"></canvas>
-        <canvas id="TotalGuilds" height="100"></canvas>
-        <canvas id="TotalChannels" height="100"></canvas>
-        <canvas id="TotalRoles" height="100"></canvas>
-        <canvas id="TotalEmotes" height="100"></canvas>
+
+        <div class="row">
+            <div class="col"><canvas id="TotalGuilds" height="200"></canvas></div>
+            <div class="col"><canvas id="TotalUsers" height="200"></canvas></div>
+        </div>
+
+        <div class="row">
+            <div class="col"><canvas id="TotalChannels" height="300"></canvas></div>
+            <div class="col"><canvas id="TotalRoles" height="300"></canvas></div>
+            <div class="col"><canvas id="TotalEmotes" height="300"></canvas></div>
+        </div>
+
+        <canvas id="GuildRegions" height="100"></canvas>
         <canvas id="Ping" height="100"></canvas>
+        <canvas id="TotalBotMessages" height="100"></canvas>
     </div>
 @endsection
 
+@section('scripts')
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 
 <script>
@@ -338,7 +347,7 @@
             scales: {
                 xAxes: [{
                     ticks: {
-                        maxTicksLimit: 8
+                        maxTicksLimit: 5
                     }
                 }],
                 yAxes: [{
@@ -396,7 +405,7 @@
             scales: {
                 xAxes: [{
                     ticks: {
-                        maxTicksLimit: 8
+                        maxTicksLimit: 5
                     }
                 }],
                 yAxes: [{
@@ -454,7 +463,7 @@
             scales: {
                 xAxes: [{
                     ticks: {
-                        maxTicksLimit: 8
+                        maxTicksLimit: 5
                     }
                 }],
                 yAxes: [{
@@ -525,4 +534,62 @@
     });
 </script>
 
+<script>
+    var ctx = document.getElementById('TotalBotMessages').getContext('2d');
+    var chart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: [
+                @foreach ($eventMetrics[0] as $event)
+                    '{{ substr($event->dateInserted,11) }}',
+                @endforeach
+            ],
 
+            datasets: [{
+                label: 'Shard #0',
+                backgroundColor: 'rgba(100, 0, 0, 0.7)',
+                data: [
+                    @foreach ($eventMetrics[0] as $event)
+                        '{{ $event->totalBotMessages }}',
+                    @endforeach
+                ]
+            }, {
+                label: 'Shard #1',
+                backgroundColor: 'rgba(100, 0, 0, 0.7)',
+                data: [
+                    @foreach ($eventMetrics[1] as $event)
+                        '{{ $event->totalBotMessages }}',
+                    @endforeach
+                ]
+            }
+            ]
+        },
+
+        options: {
+            title: {
+                    display: true,
+                    text: 'Total Bot Messages',
+                    fontColor: '#cccccc'
+            },
+            legend: {
+                    display: false
+            },
+            scales: {
+                xAxes: [{
+                    ticks: {
+                        maxTicksLimit: 8
+                    }
+                }],
+                yAxes: [{
+                    stacked: true,
+                }]
+            },
+            elements: {
+                point: {
+                    radius: 1
+                }
+            }
+        }
+    });
+</script>
+@endsection
