@@ -3,7 +3,7 @@
 @section('title')
 
 @section('content')
-<div id="commands" class="container">
+<div id="commands">
     <div class="nav bg-dark justify-center" role="tablist">
         <a class="nav-item nav-link" id="command-animal-tab" data-toggle="tab" href="#command-animal" role="tab" aria-controls="command-animal" aria-selected="false">Animal <span id="command-animal-count" class="badge badge-secondary">0</span></a>
         <a class="nav-item nav-link" id="command-audio-tab" data-toggle="tab" href="#command-audio" role="tab" aria-controls="command-audio" aria-selected="false">Audio <span id="command-audio-count" class="badge badge-secondary">0</span></a>

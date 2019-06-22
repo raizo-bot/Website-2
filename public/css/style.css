@@ -70,3 +70,9 @@ a:visited, a:hover, a:link {
 .h2-font {
     font-size: 2rem;
 }
+
+/** Ad */
+
+.ad-container {
+    min-height: 90px;
+}

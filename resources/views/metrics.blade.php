@@ -3,27 +3,25 @@
 @section('title', 'Yuuko > Metrics')
 
 @section('content')
-    <div class="container">
-        <div class="text-center bg-dark p-1"> <span class="h2-font">{{ $systemMetrics[0][0]->uptime }}ms</span></div>
-        <canvas id="MemoryUsage" height="100"></canvas>
-        <canvas id="TotalCommandExecutions" height="100"></canvas>
-        <canvas id="AverageExecutionTime" height="100"></canvas>
+    <div class="text-center bg-dark p-1"> <span class="h2-font">{{ $systemMetrics[0][0]->uptime }}ms</span></div>
+    <canvas id="MemoryUsage" height="100"></canvas>
+    <canvas id="TotalCommandExecutions" height="100"></canvas>
+    <canvas id="AverageExecutionTime" height="100"></canvas>
 
-        <div class="row">
-            <div class="col"><canvas id="TotalGuilds" height="200"></canvas></div>
-            <div class="col"><canvas id="TotalUsers" height="200"></canvas></div>
-        </div>
-
-        <div class="row">
-            <div class="col"><canvas id="TotalChannels" height="300"></canvas></div>
-            <div class="col"><canvas id="TotalRoles" height="300"></canvas></div>
-            <div class="col"><canvas id="TotalEmotes" height="300"></canvas></div>
-        </div>
-
-        <canvas id="GuildRegions" height="100"></canvas>
-        <canvas id="Ping" height="100"></canvas>
-        <canvas id="TotalBotMessages" height="100"></canvas>
+    <div class="row">
+        <div class="col"><canvas id="TotalGuilds" height="200"></canvas></div>
+        <div class="col"><canvas id="TotalUsers" height="200"></canvas></div>
     </div>
+
+    <div class="row">
+        <div class="col"><canvas id="TotalChannels" height="300"></canvas></div>
+        <div class="col"><canvas id="TotalRoles" height="300"></canvas></div>
+        <div class="col"><canvas id="TotalEmotes" height="300"></canvas></div>
+    </div>
+
+    <canvas id="GuildRegions" height="100"></canvas>
+    <canvas id="Ping" height="100"></canvas>
+    <canvas id="TotalBotMessages" height="100"></canvas>
 @endsection
 
 @section('scripts')
