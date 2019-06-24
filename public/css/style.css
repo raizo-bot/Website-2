@@ -9,6 +9,7 @@ a:visited, a:hover, a:link {
 
 .justify-center {
     justify-content: center;
+    text-align: center;
 }
 
 .justify-end {
@@ -30,24 +31,19 @@ a:visited, a:hover, a:link {
         1px 1px 0 #000;
 }
 
-#jumbo {
-    background-image: url("/assets/banner/yuukobanner.gif");
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
+#hero {
+    background-color: #131313 !important;
+    padding-top: 20px;
+    padding-bottom: 80px;
 }
 
-.nav-item:hover {
-    background-color: #3d4852;
+#tag-line {
+    color: #bbbbbb;
 }
 
-.nav-item:active {
-    background-color: #2c3741;
-}
-
-#main-nav, #secondary-nav {
-    width: 100%;
-    background-color: #212529 !important;
+.nav-secondary {
+    padding-bottom: 75px;
+    justify-content: left;
 }
 
 #secondary-nav .nav-link {
@@ -64,15 +60,89 @@ a:visited, a:hover, a:link {
 }
 
 .bg-dark {
-    background-color: #212529 !important;
+    background-color: #212121 !important;
+}
+
+.curvy {
+    padding: 10px;
+    border-radius: 5px;
 }
 
 .h2-font {
     font-size: 2rem;
 }
 
-/** Ad */
+.btn {
+    padding: .1rem .85rem !important;
+}
+
+/* Ad */
 
 .ad-container {
     min-height: 90px;
+}
+
+/* Ad Cards */
+
+.guilds {
+    text-align: center;
+}
+
+.guild-col {
+    display: inline-block;
+    max-width: 24%;
+    text-align: left;
+}
+
+.card-img-top {
+    position: relative;
+    text-align: center;
+    border-bottom: 1px solid #ddd
+}
+
+.card-icon {
+    width: 45%;
+    margin: 20px;
+    padding: 2px;
+    border: 2px solid #ddd
+}
+
+.guild-body {
+    background-color: #eeeeee;
+    color: #000;
+    border-top-color: #1b1e21;
+}
+
+.guild-name {
+    margin-bottom: 40px;
+}
+
+.guild-member-count {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.guild-member-count img {
+    vertical-align: text-bottom !important;
+}
+
+/* command nav */
+
+.side-bar {
+    margin: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+    max-width: 20%;
+    background-color: #1b1e21;
+    list-style: none;
+}
+
+.list-header {
+    padding-top: 10px;
+    color: #aaaaaa;
+    text-align: center;
+}
+
+.list-item {
+    padding-left: 10px;
 }

@@ -21,9 +21,26 @@
 
 <body>
 
-    <div id="secondary-nav">
-        <div class="container">
-            <ul class="nav navbar-dark bg-dark justify-end">
+    <!---->
+    <div id="hero">
+        <div class="container justify-center">
+            <ul class="nav nav-secondary">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Yuuko</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/commands">Commands</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/tutorials">Tutorials</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" target="_blank" href="https://discordapp.com/oauth2/authorize?client_id=420682957007880223&permissions=8&scope=bot">Invite</a>
+                </li>
+
                 <li class="nav-item">
                     <a class="nav-link" href="/metrics"><img src="{{ asset('assets/icon/chart-icon.png') }}"/></a>
                 </li>
@@ -36,36 +53,13 @@
                     <a class="nav-link" target="_blank" href="https://github.com/Yuuko-oh"><img src="{{ asset('assets/icon/github-icon.png') }}"/></a>
                 </li>
             </ul>
+
+            <h1>Yuuko</h1>
+            <span id="tag-line">Listening to <code>{{ number_format(count($guilds)) }}</code> guilds and counting!
         </div>
     </div>
 
     <!---->
-
-    <div id="jumbo" class="jumbotron text-center'">
-        <h2>Yuuko</h2>
-        <span id="tag-line">Listening to <code>{{ number_format(count($guilds)) }}</code> guilds and counting!
-    </div>
-
-    <!---->
-
-    <div id="main-nav">
-        <div class="container">
-            <ul class="nav navbar-dark bg-dark justify-center">
-                <li class="nav-item">
-                    <a class="nav-link" href="/">Commands</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="/tutorials">Tutorials</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" target="_blank" href="https://discordapp.com/oauth2/authorize?client_id=420682957007880223&permissions=8&scope=bot">Invite</a>
-                </li>
-
-            </ul>
-        </div>
-    </div>
 
     <br>
 

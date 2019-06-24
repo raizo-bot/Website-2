@@ -13,6 +13,11 @@ class MasterController extends Controller {
 		return view('index', compact('guilds'));
 	}
 
+	public function commands() {
+        $guilds = Guild::all();
+        return view('commands', compact('guilds'));
+    }
+
 	public function metrics() {
 		$guilds = Guild::all();
         $guildRegions = DB::table('Guilds')->select(DB::raw('guildRegion as name, count(guildRegion) as count'))->groupBy('guildRegion')->orderByRaw('count(guildRegion) DESC')->get()->toArray();
