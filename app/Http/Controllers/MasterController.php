@@ -15,7 +15,8 @@ class MasterController extends Controller {
 
 	public function commands() {
         $guilds = Guild::all();
-        return view('commands', compact('guilds'));
+        $commands = DB::connection('dbmeta')->table('Commands')->orderBy('commandName')->get();
+        return view('commands', compact('guilds',  'commands'));
     }
 
 	public function metrics() {

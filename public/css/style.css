@@ -76,6 +76,11 @@ a:visited, a:hover, a:link {
     padding: .1rem .85rem !important;
 }
 
+.row {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
 /* Ad */
 
 .ad-container {
@@ -86,18 +91,26 @@ a:visited, a:hover, a:link {
 
 .guilds {
     text-align: center;
+    flex-flow: wrap;
 }
 
 .guild-col {
     display: inline-block;
-    max-width: 24%;
     text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px;
+}
+
+.guild-col > .card {
+    max-width: 208px !important;
+    min-width: 208px !important;
 }
 
 .card-img-top {
     position: relative;
     text-align: center;
-    border-bottom: 1px solid #ddd
+    border-bottom: 1px solid #ddd;
 }
 
 .card-icon {
@@ -126,14 +139,37 @@ a:visited, a:hover, a:link {
     vertical-align: text-bottom !important;
 }
 
+.vote-col {
+    justify-content: center;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    margin-bottom: 15px;
+}
+
+.vote-col > .card {
+    display: inline-block;
+    margin-top: 0 !important;
+    min-width: 360px !important;
+}
+
+.vote-col > .card:nth-child(1) {
+    margin-left: 0 !important;
+}
+
+.vote-col > .card:nth-child(3) {
+    margin-right: 0 !important;
+}
+
 /* command nav */
 
-.side-bar {
+.side-bar-header {
     margin: 0;
     padding-left: 10px;
     padding-right: 10px;
-    max-width: 20%;
-    background-color: #1b1e21;
+    padding-bottom: 10px;
+    max-width: 147px;
+    min-width: 147px;
+    background-color: #212121;
     list-style: none;
 }
 
@@ -145,4 +181,8 @@ a:visited, a:hover, a:link {
 
 .list-item {
     padding-left: 10px;
+}
+
+.side-bar-content {
+    padding: 10px;
 }
