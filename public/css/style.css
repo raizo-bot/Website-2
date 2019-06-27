@@ -152,12 +152,21 @@ a:visited, a:hover, a:link {
     min-width: 360px !important;
 }
 
+.vote-col > .col {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
 .vote-col > .card:nth-child(1) {
     margin-left: 0 !important;
 }
 
 .vote-col > .card:nth-child(3) {
     margin-right: 0 !important;
+}
+
+.dimmed-text {
+    color: #bbbbbb;
 }
 
 /* command nav */
