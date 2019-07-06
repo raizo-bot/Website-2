@@ -10,7 +10,8 @@ class MasterController extends Controller {
 
 	public function index() {
 		$guilds = Guild::all();
-		return view('index', compact('guilds'));
+		$guildData = DB::table('GuildData')->get();
+		return view('index', compact('guilds', 'guildData'));
 	}
 
 	public function commands() {
@@ -21,12 +22,11 @@ class MasterController extends Controller {
 
 	public function metrics() {
 		$guilds = Guild::all();
-        $guildRegions = DB::table('Guilds')->select(DB::raw('guildRegion as name, count(guildRegion) as count'))->groupBy('guildRegion')->orderByRaw('count(guildRegion) DESC')->get()->toArray();
+        $guildRegions = DB::table('GuildData')->select(DB::raw('guildRegion as name, count(guildRegion) as count'))->groupBy('guildRegion')->orderByRaw('count(guildRegion) DESC')->get()->toArray();
 
-        $systemMetrics = $this->getMetricsSorted("SystemMetrics", 200);
+        $systemMetrics = $this->getMetricsSorted("SystemMetrics", 100);
         $discordMetrics = $this->getMetricsSorted("DiscordMetrics", 100);
         $eventMetrics = $this->getMetricsSorted("EventMetrics", 200);
-
         $commandLog = DB::connection('dbmetrics')->table("CommandsLog")->select(DB::raw('command, count(command) as count, avg(executionTime) as executionTime'))->groupBy('command')->get();
 
 		return view('metrics', compact('guilds', 'guildRegions', 'systemMetrics', 'discordMetrics', 'commandLog', 'eventMetrics'));

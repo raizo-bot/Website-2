@@ -69,14 +69,6 @@
                         '{{ $system->memoryUsed/1e+6 }}',
                     @endforeach
                 ]
-            }, {
-                label: 'Shard #1',
-                backgroundColor: 'rgba(100, 0, 0, 0.7)',
-                data: [
-                    @foreach ($systemMetrics[1] as $system)
-                        '{{ $system->memoryUsed/1e+6 }}',
-                    @endforeach
-                ]
             }]
         },
 
