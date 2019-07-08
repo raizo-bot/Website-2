@@ -10,9 +10,14 @@ class MasterController extends Controller {
 
 	public function index() {
 		$guilds = Guild::all();
-		$guildData = DB::table('GuildData')->get();
 		return view('index', compact('guilds', 'guildData'));
 	}
+
+	public function servers() {
+	    $guilds = Guild::all();
+        $guildData = DB::table('GuildData')->get();
+        return view('servers', compact('guilds',  'guildData'));
+    }
 
 	public function commands() {
         $guilds = Guild::all();

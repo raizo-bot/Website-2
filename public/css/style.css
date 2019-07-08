@@ -16,25 +16,20 @@ a:visited, a:hover, a:link {
     justify-content: flex-end;
 }
 
-.jumbotron {
-    padding: 3rem 2rem !important;
-    margin: 0;
-    background-color: #131313;
-    border-radius: 0;
-    border-top: solid  rebeccapurple;
-    border-bottom: solid  rebeccapurple;
-    text-align: center;
-    text-shadow:
-        1px 1px 0 #000,
-        1px 1px 0 #000,
-        1px 1px 0 #000,
-        1px 1px 0 #000;
+#hero {
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
 }
 
-#hero {
-    background-color: #131313 !important;
-    padding-top: 20px;
-    padding-bottom: 80px;
+.hero-body {
+    display: flex;
+    align-items: center;
+}
+
+.top-stick {
+    position: absolute;
+    top: 0;
 }
 
 #tag-line {
@@ -42,7 +37,8 @@ a:visited, a:hover, a:link {
 }
 
 .nav-secondary {
-    padding-bottom: 75px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     justify-content: left;
 }
 

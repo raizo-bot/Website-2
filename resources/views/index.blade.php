@@ -1,50 +1,54 @@
-@extends('layout/master')
+@extends('layout/hero')
 
 @section('title')
 
-@section('content')
-    <div class="row vote-col">
-        <div class="card mb-2 m-1 bg-dark col">
-            <h6 class="card-header text-center">discordbots.org</h6>
-            <div class="card-body">
-                <p class="card-text dimmed-text">The first bot list that Yuuko was added to a month after creation in 2018, with a link to their website <a href="https://discordbots.org">here</a>.</p>
-                <a href="https://discordbots.org/bot/420682957007880223/vote" target="_blank" rel="noopener" class="btn btn-primary btn-block">Vote</a>
-            </div>
-        </div>
-        <div class="card mb-2 m-1 bg-dark col">
-            <h6 class="card-header text-center">discordbotlist.com</h6>
-            <div class="card-body">
-                <p class="card-text dimmed-text">The second bot list that Yuuko was added to some time in January 2019, with a link to their website <a href="https://discordbotlist.com">here</a>.</p>
-                <a href="https://discordbotlist.com/bots/420682957007880223/upvote" target="_blank" rel="noopener" class="btn btn-primary btn-block">Vote</a>
-            </div>
-        </div>
-        <div class="card mb-2 m-1 bg-dark col">
-            <h6 class="card-header text-center">divinediscordbots.com</h6>
-            <div class="card-body">
-                <p class="card-text dimmed-text">The latest bot list that Yuuko has been added to in late January 2019, with a link to their website <a href="https://divinediscordbots.com">here</a>.</p>
-                <a href="https://divinediscordbots.com/bot/420682957007880223/vote" target="_blank" rel="noopener" class="btn btn-primary btn-block">Vote</a>
+@section('hero')
+    <div id="hero" class="full-height">
+        <div class="hero-body">
+            <div class="container justify-center">
+                <h1>Yuuko</h1>
+                <span id="tag-line">Currently serving <code>{{ number_format(count($guilds)) }}</code> guilds and counting!
             </div>
         </div>
     </div>
+@endsection
 
-    <div class="guilds d-flex">
-        @foreach($guildData as $guild)
-            @if($guild->inviteLink != null)
-            <div class="guild-col d-flex justify-content-between">
-                <div class="card">
-                    <div class="card-img-top" style="background-image: url("{{ $guild->guildSplash }}")>
-                        <img class="card-icon rounded-circle" src="{{ $guild->guildIcon }}" alt="{{ $guild->guildName }}" />
-                    </div>
-                    <div class="card-body guild-body">
-                        <h6 class="guild-name">{{ base64_decode($guild->guildName) }}</h6>
-                        <div class="guild-controls">
-                            <span class="btn guild-member-count float-left"><img src="/assets/icon/group-icon.png" alt="{{ $guild->guildMembers }} members" /> {{ number_format($guild->guildMembers) }}</span>
-                            <a href="{{ $guild->inviteLink }}" target="_blank" rel="noopener"><span class="btn btn-primary float-right">Join</span></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            @endif
-        @endforeach
+@section('hero-nav')
+    <div class="w-100 justify-center top-stick">
+        <div class="container">
+            <ul class="nav nav-secondary">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Yuuko</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/commands">Commands</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/tutorials">Tutorials</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/servers">Servers</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" target="_blank" rel="noopener" href="https://discordapp.com/oauth2/authorize?client_id=420682957007880223&permissions=8&scope=bot">Invite</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/metrics"><img src="{{ asset('assets/icon/chart-icon.png') }}" alt="metrics" /></a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" target="_blank" rel="noopener" href="https://discord.gg/VsM25fN"><img src="{{ asset('assets/icon/discord-icon.png') }}" alt="discord" /></a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" target="_blank" rel="noopener" href="https://github.com/Yuuko-oh"><img src="{{ asset('assets/icon/github-icon.png') }}" alt="github" /></a>
+                </li>
+            </ul>
+        </div>
     </div>
 @endsection

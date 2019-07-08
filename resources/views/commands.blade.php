@@ -3,9 +3,32 @@
 @section('title', 'Yuuko > Commands')
 
 @section('content')
+
+<div class="row vote-col">
+    <div class="card mb-2 m-1 bg-dark col">
+        <h6 class="card-header text-center">discordbots.org</h6>
+        <div class="card-body">
+            <p class="card-text dimmed-text">The first bot list that Yuuko was added to a month after creation in 2018, with a link to their website <a href="https://discordbots.org">here</a>.</p>
+            <a href="https://discordbots.org/bot/420682957007880223/vote" target="_blank" rel="noopener" class="btn btn-primary btn-block">Vote</a>
+        </div>
+    </div>
+    <div class="card mb-2 m-1 bg-dark col">
+        <h6 class="card-header text-center">discordbotlist.com</h6>
+        <div class="card-body">
+            <p class="card-text dimmed-text">The second bot list that Yuuko was added to some time in January 2019, with a link to their website <a href="https://discordbotlist.com">here</a>.</p>
+            <a href="https://discordbotlist.com/bots/420682957007880223/upvote" target="_blank" rel="noopener" class="btn btn-primary btn-block">Vote</a>
+        </div>
+    </div>
+    <div class="card mb-2 m-1 bg-dark col">
+        <h6 class="card-header text-center">divinediscordbots.com</h6>
+        <div class="card-body">
+            <p class="card-text dimmed-text">The latest bot list that Yuuko has been added to in late January 2019, with a link to their website <a href="https://divinediscordbots.com">here</a>.</p>
+            <a href="https://divinediscordbots.com/bot/420682957007880223/vote" target="_blank" rel="noopener" class="btn btn-primary btn-block">Vote</a>
+        </div>
+    </div>
+</div>
+
 <div id="commands">
-
-
 
     <div class="nav bg-dark justify-center" role="tablist">
         <a class="nav-item nav-link" id="command-animal-tab" data-toggle="tab" href="#command-animal" role="tab" aria-controls="command-animal" aria-selected="false">Animal <span id="command-animal-count" class="badge badge-secondary">0</span></a>

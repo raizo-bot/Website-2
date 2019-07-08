@@ -27,7 +27,7 @@
 <body>
 
     <!---->
-    <div id="hero">
+    <div class="w-100 bg-dark">
         <div class="container justify-center">
             <ul class="nav nav-secondary">
                 <li class="nav-item">
@@ -40,6 +40,10 @@
 
                 <li class="nav-item">
                     <a class="nav-link" href="/tutorials">Tutorials</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/servers">Servers</a>
                 </li>
 
                 <li class="nav-item">
@@ -58,9 +62,6 @@
                     <a class="nav-link" target="_blank" rel="noopener" href="https://github.com/Yuuko-oh"><img src="{{ asset('assets/icon/github-icon.png') }}" alt="github" /></a>
                 </li>
             </ul>
-
-            <h1>Yuuko</h1>
-            <span id="tag-line">Serving <code>{{ number_format(count($guilds)) }}</code> guilds and counting!
         </div>
     </div>
 

@@ -14,4 +14,5 @@
 Route::get('/', 'MasterController@index');
 Route::get('/commands', 'MasterController@commands');
 Route::get('/metrics', 'MasterController@metrics');
+Route::get('/servers', 'MasterController@servers');
 Route::get('/tutorials', 'MasterController@tutorials');
