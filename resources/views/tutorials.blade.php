@@ -1,6 +1,6 @@
 @extends('layout/master')
 
-@section('title', 'Yuuko > Tutorials')
+@section('title', 'Yuuko / Tutorials')
 
 @section('content')
     <div class="card bg-dark">

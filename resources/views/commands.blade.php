@@ -1,6 +1,6 @@
 @extends('layout/master')
 
-@section('title', 'Yuuko > Commands')
+@section('title', 'Yuuko / Commands')
 
 @section('content')
 

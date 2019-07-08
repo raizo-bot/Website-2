@@ -27,7 +27,7 @@
 <body>
 
     <!---->
-    <div class="w-100 bg-dark">
+    <div class="w-100 shadow">
         <div class="container justify-center">
             <ul class="nav nav-secondary">
                 <li class="nav-item">

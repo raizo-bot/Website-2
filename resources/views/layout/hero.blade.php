@@ -25,8 +25,52 @@
 </head>
 
 <body>
-    @yield('hero-nav')
     @yield('hero')
+
+    <!-- particles.js container -->
+    <div id="particles-js"></div>
+    <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS("particles-js", {"particles":{"number":{"value":100,"density":{"enable":false,"value_area":800}},"color":{"value":"#ffffff"},"shape":{"type":"circle","stroke":{"width":0,"color":"#000000"},"polygon":{"nb_sides":5},"image":{"src":"img/github.svg","width":100,"height":100}},"opacity":{"value":0.5,"random":false,"anim":{"enable":false,"speed":1,"opacity_min":0.1,"sync":false}},"size":{"value":3,"random":true,"anim":{"enable":false,"speed":40,"size_min":0.1,"sync":false}},"line_linked":{"enable":true,"distance":150,"color":"#ffffff","opacity":0.4,"width":1},"move":{"enable":true,"speed":3,"direction":"top","random":false,"straight":false,"out_mode":"out","bounce":false,"attract":{"enable":false,"rotateX":600,"rotateY":1200}}},"interactivity":{"detect_on":"canvas","events":{"onhover":{"enable":false,"mode":"repulse"},"onclick":{"enable":false,"mode":"push"},"resize":true},"modes":{"grab":{"distance":400,"line_linked":{"opacity":1}},"bubble":{"distance":400,"size":40,"duration":2,"opacity":8,"speed":3},"repulse":{"distance":200,"duration":0.4},"push":{"particles_nb":4},"remove":{"particles_nb":2}}},"retina_detect":true});
+    </script>
+
+    <div class="w-100 shadow justify-center top-stick">
+        <div class="container">
+            <ul class="nav nav-secondary">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Yuuko</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/commands">Commands</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/tutorials">Tutorials</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/servers">Servers</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" target="_blank" rel="noopener" href="https://discordapp.com/oauth2/authorize?client_id=420682957007880223&permissions=8&scope=bot">Invite</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/metrics"><img src="{{ asset('assets/icon/chart-icon.png') }}" alt="metrics" /></a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" target="_blank" rel="noopener" href="https://discord.gg/VsM25fN"><img src="{{ asset('assets/icon/discord-icon.png') }}" alt="discord" /></a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" target="_blank" rel="noopener" href="https://github.com/Yuuko-oh"><img src="{{ asset('assets/icon/github-icon.png') }}" alt="github" /></a>
+                </li>
+            </ul>
+        </div>
+    </div>
 </body>
 
 </html>

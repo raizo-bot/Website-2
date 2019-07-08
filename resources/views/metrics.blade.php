@@ -1,6 +1,6 @@
 @extends('layout/master')
 
-@section('title', 'Yuuko > Metrics')
+@section('title', 'Yuuko / Metrics')
 
 @section('content')
     <div class="text-center bg-dark p-1"> <span class="h2-font">{{ $systemMetrics[0][0]->uptime }}ms</span></div>
