@@ -6,8 +6,6 @@
     <div class="text-center bg-dark p-1"> <span class="h2-font">{{ $systemMetrics[0][0]->uptime }}ms</span></div>
     <canvas id="MemoryUsage" height="100"></canvas>
     <canvas id="TotalCommandExecutions" height="100"></canvas>
-    <canvas id="AverageExecutionTime" height="100"></canvas>
-
     <canvas id="GuildRegions" height="100"></canvas>
     <canvas id="Ping" height="100"></canvas>
 @endsection
@@ -123,41 +121,6 @@
             title: {
                     display: true,
                     text: 'Total Command Executions',
-                    fontColor: '#cccccc'
-            },
-            legend: {
-                    display: false
-            }
-        }
-    });
-</script>
-
-<script>
-    var ctx = document.getElementById('AverageExecutionTime').getContext('2d');
-    var chart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: [
-                @foreach ($commandLog as $command)
-                    '{{ $command->command }}',
-                @endforeach
-            ],
-
-            datasets: [{
-                label: 'Average Execution Time (ms)',
-                backgroundColor: 'rgba(150, 0, 0, 0.7)',
-                data: [
-                    @foreach ($commandLog as $command)
-                        '{{ $command->executionTime }}',
-                    @endforeach
-                ]
-            }]
-        },
-
-        options: {
-            title: {
-                    display: true,
-                    text: 'Average Execution Time (ms)',
                     fontColor: '#cccccc'
             },
             legend: {
