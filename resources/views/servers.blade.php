@@ -16,7 +16,7 @@
     <div class="guilds d-flex">
         @foreach($guildData as $guild)
         @if($guild->inviteLink != null)
-        <div class="guild-col d-flex justify-content-between">
+        <div class="col-md-2 guild-col">
             <div class="card">
                 <div class="card-img-top" style="background-image: url("{{ $guild->guildSplash }}")>
                     <img class="card-icon rounded-circle" src="{{ $guild->guildIcon }}" alt="{{ $guild->guildName }}" />
@@ -24,7 +24,7 @@
                 <div class="card-body guild-body">
                     <h6 class="guild-name">{{ base64_decode($guild->guildName) }}</h6>
                     <div class="guild-controls">
-                        <span class="btn guild-member-count float-left"><img src="/assets/icon/group-icon.png" alt="{{ $guild->guildMembers }} members" /> {{ number_format($guild->guildMembers) }}</span>
+                        <span class="btn guild-member-count float-left"><i class="fa fa-users" aria-hidden="true"></i> {{ number_format($guild->guildMembers) }}</span>
                         <a href="{{ $guild->inviteLink }}" target="_blank" rel="noopener"><span class="btn btn-primary float-right">Join</span></a>
                     </div>
                 </div>
