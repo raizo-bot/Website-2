@@ -3,11 +3,40 @@
 @section('title', 'Yuuko / Metrics')
 
 @section('content')
-    <div class="text-center bg-dark p-1"> <span class="h2-font">{{ $systemMetrics[0][0]->uptime }}ms</span></div>
-    <canvas id="MemoryUsage" height="100"></canvas>
-    <canvas id="TotalCommandExecutions" height="100"></canvas>
-    <canvas id="GuildRegions" height="100"></canvas>
-    <canvas id="Ping" height="100"></canvas>
+    <div class="card bg-dark mb-4">
+        <h4 class="card-header">Uptime (Hours)</h4>
+        <div class="card-body dimmed-text">
+            {{ number_format($systemMetrics[0][0]->uptime/3.6e+6, 2) }} ± 10 Seconds
+        </div>
+    </div>
+
+    <div class="card bg-dark mb-4">
+        <h4 class="card-header">Memory Usage (Megabytes)</h4>
+        <div class="card-body dimmed-text">
+            <canvas id="MemoryUsage" height="100"></canvas>
+        </div>
+    </div>
+
+    <div class="card bg-dark mb-4">
+        <h4 class="card-header">Total Command Executions (Current Session)</h4>
+        <div class="card-body dimmed-text">
+            <canvas id="TotalCommandExecutions" height="200"></canvas>
+        </div>
+    </div>
+
+    <div class="card bg-dark mb-4">
+        <h4 class="card-header">Guild Region Distribution</h4>
+        <div class="card-body dimmed-text">
+            <canvas id="GuildRegions" height="100"></canvas>
+        </div>
+    </div>
+
+    <div class="card bg-dark mb-4">
+        <h4 class="card-header">Latency (Milliseconds)</h4>
+        <div class="card-body dimmed-text">
+            <canvas id="Ping" height="100"></canvas>
+        </div>
+    </div>
 @endsection
 
 @section('scripts')
@@ -26,7 +55,7 @@
 
             datasets: [{
                 label: 'Region Distribution',
-                backgroundColor: 'rgba(150, 0, 0, 0.7)',
+                backgroundColor: 'rgba(150, 0, 0, 0.5)',
                 data: [
                     @foreach ($guildRegions as $region)
                         '{{ $region->count }}',
@@ -38,7 +67,6 @@
         options: {
             title: {
                     display: true,
-                    text: 'Region Distribution',
                     fontColor: '#cccccc'
             },
             legend: {
@@ -61,7 +89,7 @@
 
             datasets: [{
                 label: 'Shard #0',
-                backgroundColor: 'rgba(150, 0, 0, 0.7)',
+                backgroundColor: 'rgba(150, 0, 0, 0.5)',
                 data: [
                     @foreach ($systemMetrics[0] as $system)
                         '{{ $system->memoryUsed/1e+6 }}',
@@ -73,7 +101,6 @@
         options: {
             title: {
                     display: true,
-                    text: 'Memory Usage (MB)',
                     fontColor: '#cccccc'
             },
             legend: {
@@ -98,7 +125,7 @@
 <script>
     var ctx = document.getElementById('TotalCommandExecutions').getContext('2d');
     var chart = new Chart(ctx, {
-        type: 'bar',
+        type: 'line',
         data: {
             labels: [
                 @foreach ($commandLog as $command)
@@ -108,7 +135,7 @@
 
             datasets: [{
                 label: 'Total Command Executions',
-                backgroundColor: 'rgba(150, 0, 0, 0.7)',
+                backgroundColor: 'rgba(150, 0, 0, 0.5)',
                 data: [
                     @foreach ($commandLog as $command)
                         '{{ $command->count }}',
@@ -120,7 +147,6 @@
         options: {
             title: {
                     display: true,
-                    text: 'Total Command Executions',
                     fontColor: '#cccccc'
             },
             legend: {
@@ -143,17 +169,9 @@
 
             datasets: [{
                 label: 'Shard #0',
-                backgroundColor: 'rgba(150, 0, 0, 0.7)',
+                backgroundColor: 'rgba(150, 0, 0, 0.5)',
                 data: [
                     @foreach ($discordMetrics[0] as $discord)
-                        '{{ $discord->ping }}',
-                    @endforeach
-                ]
-            }, {
-                label: 'Shard #1',
-                backgroundColor: 'rgba(100, 0, 0, 0.7)',
-                data: [
-                    @foreach ($discordMetrics[1] as $discord)
                         '{{ $discord->ping }}',
                     @endforeach
                 ]
@@ -163,7 +181,6 @@
         options: {
             title: {
                     display: true,
-                    text: 'Ping',
                     fontColor: '#cccccc'
             },
             legend: {

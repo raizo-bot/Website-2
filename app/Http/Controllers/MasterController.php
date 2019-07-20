@@ -32,7 +32,7 @@ class MasterController extends Controller {
         $systemMetrics = $this->getMetricsSorted("SystemMetrics", 100);
         $discordMetrics = $this->getMetricsSorted("DiscordMetrics", 100);
         $eventMetrics = $this->getMetricsSorted("EventMetrics", 200);
-        $commandLog = DB::connection('dbmetrics')->table("CommandsLog")->select(DB::raw('command, count(command) as count, avg(executionTime) as executionTime'))->groupBy('command')->get();
+        $commandLog = DB::connection('dbmetrics')->table("CommandsLog")->select(DB::raw('command, count(command) as count, avg(executionTime) as executionTime'))->groupBy('command')->orderByRaw('count(command) DESC')->get();
 
 		return view('metrics', compact('guilds', 'guildRegions', 'systemMetrics', 'discordMetrics', 'commandLog', 'eventMetrics'));
 	}
