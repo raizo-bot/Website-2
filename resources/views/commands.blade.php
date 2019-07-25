@@ -261,6 +261,13 @@
                     <td>-advertise, -advertise stop</td>
                     <td><code>-advertise</code>, <code>-advertise stop</code></td>
                 </tr>
+
+                <tr>
+                    <td>permissions</td>
+                    <td>Displays both which permissions to bot current has, besides which the bot needs to fully function.</td>
+                    <td>-permissions</td>
+                    <td><code>-permissions</code></td>
+                </tr>
                 </tbody>
             </table>
         </div>
@@ -530,6 +537,13 @@
                     <td>-petition, -petition [id]</td>
                     <td><code>-petition</code>, <code>-petition 241584</code></td>
                 </tr>
+
+                <tr>
+                    <td>urban</td>
+                    <td>Returns the definition of a word and examples from Urban Dictionary.</td>
+                    <td>-urban [term]</td>
+                    <td><code>-urban ur mum</code></td>
+                </tr>
                 </tbody>
             </table>
         </div>
@@ -603,12 +617,6 @@
                     <td><code>-neko</code>, <code>-neko boobs</code></td>
                 </tr>
 
-                <tr>
-                    <td>urban</td>
-                    <td>Returns the definition of a word and examples from Urban Dictionary.</td>
-                    <td>-urban [term]</td>
-                    <td><code>-urban ur mum</code></td>
-                </tr>
                 </tbody>
             </table>
         </div>
