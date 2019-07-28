@@ -168,11 +168,20 @@
             ],
 
             datasets: [{
-                label: 'Shard #0',
+                label: 'Shard #0 Gateway',
                 backgroundColor: 'rgba(150, 0, 0, 0.5)',
                 data: [
                     @foreach ($discordMetrics[0] as $discord)
-                        '{{ $discord->ping }}',
+                        '{{ $discord->gatewayPing }}',
+                    @endforeach
+                ]
+            },
+            {
+                label: 'Shard #0 REST',
+                backgroundColor: 'rgba(150, 0, 0, 0.5)',
+                data: [
+                    @foreach ($discordMetrics[0] as $discord)
+                        '{{ $discord->restPing }}',
                     @endforeach
                 ]
             }]
