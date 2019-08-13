@@ -612,9 +612,16 @@
 
                 <tr>
                     <td>neko</td>
-                    <td>Returns a random lewd neko image by default or another type with a given parameter</td>
+                    <td>Returns a random lewd neko image by default or another type with a given parameter.</td>
                     <td>-neko, -neko [type]</td>
                     <td><code>-neko</code>, <code>-neko boobs</code></td>
+                </tr>
+
+                <tr>
+                    <td>rule34</td>
+                    <td>Returns a random image from the rule 34 website.</td>
+                    <td>-rule34,</td>
+                    <td><code>-rule34</code></td>
                 </tr>
 
                 </tbody>

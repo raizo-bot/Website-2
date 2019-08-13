@@ -25,6 +25,13 @@
     </div>
 
     <div class="card bg-dark mb-4">
+        <h4 class="card-header">Audio Metrics</h4>
+        <div class="card-body dimmed-text">
+            <canvas id="AudioMetrics" height="100"></canvas>
+        </div>
+    </div>
+
+    <div class="card bg-dark mb-4">
         <h4 class="card-header">Guild Region Distribution</h4>
         <div class="card-body dimmed-text">
             <canvas id="GuildRegions" height="100"></canvas>
@@ -139,6 +146,56 @@
                 data: [
                     @foreach ($commandLog as $command)
                         '{{ $command->count }}',
+                    @endforeach
+                ]
+            }]
+        },
+
+        options: {
+            title: {
+                    display: true,
+                    fontColor: '#cccccc'
+            },
+            legend: {
+                    display: false
+            }
+        }
+    });
+</script>
+
+<script>
+    var ctx = document.getElementById('AudioMetrics').getContext('2d');
+    var chart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: [
+                @foreach ($audioMetrics as $metric)
+                    '{{ substr($metric->dateInserted,11) }}',
+                @endforeach
+            ],
+
+            datasets: [{
+                label: 'Total Players',
+                backgroundColor: 'rgba(150, 0, 0, 0.5)',
+                data: [
+                    @foreach ($audioMetrics as $metric)
+                        '{{ $metric->activePlayers }}',
+                    @endforeach
+                ]
+            }, {
+            label: 'Active Players',
+                backgroundColor: 'rgba(150, 0, 0, 0.5)',
+                data: [
+                    @foreach ($audioMetrics as $metric)
+                        '{{ $metric->players }}',
+                    @endforeach
+                ]
+            }, {
+            label: 'Queued Tracks',
+                backgroundColor: 'rgba(150, 0, 0, 0.5)',
+                data: [
+                    @foreach ($audioMetrics as $metric)
+                        '{{ $metric->queueSize }}',
                     @endforeach
                 ]
             }]
