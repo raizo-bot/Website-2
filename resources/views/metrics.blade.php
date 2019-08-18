@@ -206,6 +206,13 @@
                     display: true,
                     fontColor: '#cccccc'
             },
+            scales: {
+                xAxes: [{
+                    ticks: {
+                        maxTicksLimit: 8
+                    }
+                }]
+            },
             legend: {
                     display: false
             }
