@@ -332,6 +332,13 @@
                     <td>-joke, -joke [term]</td>
                     <td><code>-joke</code>, <code>-joke ass</code></td>
                 </tr>
+
+                <tr>
+                    <td>horoscope</td>
+                    <td>Returns the daily horoscope for the given sign.</td>
+                    <td>-horoscope [sign]</td>
+                    <td><code>-horoscope cap</code></td>
+                </tr>
                 </tbody>
             </table>
         </div>
