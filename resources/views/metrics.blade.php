@@ -132,7 +132,7 @@
 <script>
     var ctx = document.getElementById('TotalCommandExecutions').getContext('2d');
     var chart = new Chart(ctx, {
-        type: 'line',
+        type: 'bar',
         data: {
             labels: [
                 @foreach ($commandLog as $command)
@@ -175,11 +175,11 @@
             ],
 
             datasets: [{
-                label: 'Total Players',
+                label: 'Players',
                 backgroundColor: 'rgba(150, 0, 0, 0.5)',
                 data: [
                     @foreach ($audioMetrics as $metric)
-                        '{{ $metric->activePlayers }}',
+                        '{{ $metric->players }}',
                     @endforeach
                 ]
             }, {
@@ -187,7 +187,7 @@
                 backgroundColor: 'rgba(150, 0, 0, 0.5)',
                 data: [
                     @foreach ($audioMetrics as $metric)
-                        '{{ $metric->players }}',
+                        '{{ $metric->activePlayers }}',
                     @endforeach
                 ]
             }, {
