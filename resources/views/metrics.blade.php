@@ -76,6 +76,14 @@
                     display: true,
                     fontColor: '#cccccc'
             },
+            scales: {
+                yAxes: [{
+                    display: true,
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            },
             legend: {
                     display: false
             }
@@ -156,6 +164,14 @@
                     display: true,
                     fontColor: '#cccccc'
             },
+            scales: {
+                yAxes: [{
+                    display: true,
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            },
             legend: {
                     display: false
             }
@@ -211,6 +227,12 @@
                     ticks: {
                         maxTicksLimit: 8
                     }
+                }],
+                yAxes: [{
+                    display: true,
+                    ticks: {
+                        beginAtZero: true
+                    }
                 }]
             },
             legend: {
@@ -263,6 +285,12 @@
                 xAxes: [{
                     ticks: {
                         maxTicksLimit: 8
+                    }
+                }],
+                yAxes: [{
+                    display: true,
+                    ticks: {
+                        beginAtZero: true
                     }
                 }]
             },
