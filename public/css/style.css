@@ -128,7 +128,7 @@ a:visited, a:hover, a:link {
 .card-img-top {
     position: relative;
     text-align: center;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #333333;
 }
 
 .card-icon {
@@ -213,4 +213,8 @@ a:visited, a:hover, a:link {
 
 .side-bar-content {
     padding: 10px;
+}
+
+.nav-item {
+    margin: auto;
 }

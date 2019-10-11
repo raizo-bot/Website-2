@@ -10,7 +10,9 @@ class MasterController extends Controller {
 
 	public function index() {
 		$guilds = Guild::all();
-		return view('index', compact('guilds', 'guildData'));
+        $guildMembers = DB::table('GuildData')->select(DB::raw('sum(guildMembers) as members'))->first();
+        $guildRegions = DB::table('GuildData')->select(DB::raw('count(guildRegion) as regions'))->groupBy('guildRegion')->get();
+		return view('index', compact('guilds', 'guildData', 'guildMembers', 'guildRegions'));
 	}
 
 	public function servers() {
