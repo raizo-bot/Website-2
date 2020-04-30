@@ -20,7 +20,7 @@
     <div class="card bg-dark mb-4">
         <h4 class="card-header">Total Command Executions (Current Session)</h4>
         <div class="card-body dimmed-text">
-            <canvas id="TotalCommandExecutions" height="200"></canvas>
+            <canvas id="TotalCommandExecutions" height="100"></canvas>
         </div>
     </div>
 
@@ -28,6 +28,13 @@
         <h4 class="card-header">Audio Metrics</h4>
         <div class="card-body dimmed-text">
             <canvas id="AudioMetrics" height="100"></canvas>
+        </div>
+    </div>
+
+    <div class="card bg-dark mb-4">
+        <h4 class="card-header">Cache Metrics</h4>
+        <div class="card-body dimmed-text">
+            <canvas id="CacheMetrics" height="100"></canvas>
         </div>
     </div>
 
@@ -91,6 +98,10 @@
     });
 </script>
 
+<!------------------------------------------------------------------------>
+<!------------------------------------------------------------------------>
+<!------------------------------------------------------------------------>
+
 <script>
     var ctx = document.getElementById('MemoryUsage').getContext('2d');
     var chart = new Chart(ctx, {
@@ -137,6 +148,10 @@
     });
 </script>
 
+<!------------------------------------------------------------------------>
+<!------------------------------------------------------------------------>
+<!------------------------------------------------------------------------>
+
 <script>
     var ctx = document.getElementById('TotalCommandExecutions').getContext('2d');
     var chart = new Chart(ctx, {
@@ -178,6 +193,10 @@
         }
     });
 </script>
+
+<!------------------------------------------------------------------------>
+<!------------------------------------------------------------------------>
+<!------------------------------------------------------------------------>
 
 <script>
     var ctx = document.getElementById('AudioMetrics').getContext('2d');
@@ -241,6 +260,69 @@
         }
     });
 </script>
+
+<!------------------------------------------------------------------------>
+<!------------------------------------------------------------------------>
+<!------------------------------------------------------------------------>
+
+<script>
+    var ctx = document.getElementById('CacheMetrics').getContext('2d');
+    var chart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: [
+                @foreach ($cacheMetrics as $metric)
+                    '{{ substr($metric->dateInserted,11) }}',
+                @endforeach
+        ],
+
+        datasets: [{
+            label: 'YouTube Search Hits',
+            backgroundColor: 'rgba(150, 0, 0, 0.5)',
+            data: [
+                @foreach($cacheMetrics as $metric)
+                    '{{ $metric->trackIdMatch }}',
+                @endforeach
+            ]
+        }, {
+            label: 'YouTube Search Size',
+                backgroundColor: 'rgba(150, 0, 0, 0.5)',
+                data: [
+                    @foreach($cacheMetrics as $metric)
+                        '{{ $metric->trackIdSize }}',
+                    @endforeach
+            ]
+        }]
+    },
+
+    options: {
+        title: {
+            display: true,
+                fontColor: '#cccccc'
+        },
+        scales: {
+            xAxes: [{
+                ticks: {
+                    maxTicksLimit: 8
+                }
+            }],
+                yAxes: [{
+                display: true,
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        },
+        legend: {
+            display: false
+        }
+    }
+    });
+</script>
+
+<!------------------------------------------------------------------------>
+<!------------------------------------------------------------------------>
+<!------------------------------------------------------------------------>
 
 <script>
     var ctx = document.getElementById('Ping').getContext('2d');
